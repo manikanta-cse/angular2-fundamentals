@@ -6,6 +6,8 @@ import {ToastrService} from '../common/toastr.service'
 
 import {ActivatedRoute} from '@angular/router'
 
+import {IEvent} from './shared/index'
+
 @Component({
     //selector:'events-list',
     template:`
@@ -30,7 +32,7 @@ import {ActivatedRoute} from '@angular/router'
 
 export class EventsListComponent implements OnInit{
 
-events:any
+events:IEvent[]
 
 /**
  *
