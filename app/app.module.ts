@@ -11,7 +11,8 @@ import {
         EventRouteActivatorService,
         EventService,
         EventThumbnailComponent,
-        CreateSessionComponent
+        CreateSessionComponent,
+        SessionListComponent
 
 } from './events/index'
 
@@ -37,7 +38,8 @@ import {appRoutes} from './routes'
         EventDetailsComponent,
         CreatEventComponent,
         Error404Component,
-        CreateSessionComponent
+        CreateSessionComponent,
+        SessionListComponent
   ],
     bootstrap:[EventsAppComponent],
     providers:[
