@@ -17,15 +17,24 @@ import {
 
 } from './events/index'
 
+import {
+        TOASTR_TOKEN,
+        Toastr,
+        JQ_TOKEN,
+        CollapsibleWellComponent,
+        SimpleModalComponent,
+        ModalTriggerDirective
+} from './common/index'
+
 import {EventsAppComponent} from './events-app.component';
 import {NavBarComponent} from './nav/navbar.component';
 import {Error404Component} from './errors/404.component';
-import {TOASTR_TOKEN,Toastr} from './common/toastr.service';
-import {CollapsibleWellComponent} from './common/collapsible-well.component';
 import {AuthService} from './user/auth.service';
 import {appRoutes} from './routes'
 
 declare let toastr:Toastr // to compiler that we know that obj 
+
+declare let jQuery: Object;
 
 @NgModule({
     imports:[
@@ -45,7 +54,9 @@ declare let toastr:Toastr // to compiler that we know that obj
         CreateSessionComponent,
         SessionListComponent,
         CollapsibleWellComponent,
-        DurationPipe 
+        DurationPipe ,
+        SimpleModalComponent,
+        ModalTriggerDirective,        
   ],
     bootstrap:[EventsAppComponent],
     providers:[                    // there are two more ways to DI is useExisting,useFactory
@@ -53,6 +64,10 @@ declare let toastr:Toastr // to compiler that we know that obj
         {                          //other way to declaree DI registry
             provide:TOASTR_TOKEN,
             useValue:toastr
+        },
+        {                          //other way to declaree DI registry
+            provide:JQ_TOKEN,
+            useValue:jQuery
         },
         EventRouteActivatorService, //short hand way to declaree DI registry
         {                              //other way to declaree DI registry when type is class
