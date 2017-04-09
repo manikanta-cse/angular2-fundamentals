@@ -20,10 +20,12 @@ import {
 import {EventsAppComponent} from './events-app.component';
 import {NavBarComponent} from './nav/navbar.component';
 import {Error404Component} from './errors/404.component';
-import {ToastrService} from './common/toastr.service';
+import {TOASTR_TOKEN,Toastr} from './common/toastr.service';
 import {CollapsibleWellComponent} from './common/collapsible-well.component';
 import {AuthService} from './user/auth.service';
 import {appRoutes} from './routes'
+
+declare let toastr:Toastr // to compiler that we know that obj 
 
 @NgModule({
     imports:[
@@ -46,11 +48,17 @@ import {appRoutes} from './routes'
         DurationPipe 
   ],
     bootstrap:[EventsAppComponent],
-    providers:[
-        EventService,
-        ToastrService,
-        EventRouteActivatorService,
-        EventListResolver,
+    providers:[                    // there are two more ways to DI is useExisting,useFactory
+        EventService,  
+        {                          //other way to declaree DI registry
+            provide:TOASTR_TOKEN,
+            useValue:toastr
+        },
+        EventRouteActivatorService, //short hand way to declaree DI registry
+        {                              //other way to declaree DI registry when type is class
+            provide:EventListResolver,  
+            useClass :EventListResolver
+        },
         AuthService,
         {
             provide:'canDeactivateCreateEvent',
