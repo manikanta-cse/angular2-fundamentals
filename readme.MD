@@ -1,19 +1,16 @@
-Angular 2 Fundamentals Course
+Angular 2 Fundamentals 
 ========================
-This is the getting started package for the Pluralsight course on Angular 2 Fundamentals found here: http://app.pluralsight.com/courses/angular-fundamentals
-
-**Course Status**
-
-The course is currently up-to-date.
-
 
 Getting Started
 ---------------
 Be sure you're running the recommended node version, which is 6.3.0+: `node --version`
 
-Follow along with the course linked above. To start the server:
+1) Open a command prompt in the project's root directory 
 
-```
-npm install
-npm start
-```
+2) Type: `npm install`
+    This installs the dependencies as defined in the package.json file.
+    
+3) Type: `npm start`
+    This launches the TypeScript compiler (tsc) to compile the application and wait for changes. 
+    It also starts the lite-server and launches the browser to run the application.
+
