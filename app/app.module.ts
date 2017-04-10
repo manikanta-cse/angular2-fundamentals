@@ -13,7 +13,10 @@ import {
         EventThumbnailComponent,
         CreateSessionComponent,
         SessionListComponent,
-        DurationPipe
+        DurationPipe,
+        UpvoteComponent,
+        VoterService,
+        LocationValidatorDirective
 
 } from './events/index'
 
@@ -56,7 +59,10 @@ declare let jQuery: Object;
         CollapsibleWellComponent,
         DurationPipe ,
         SimpleModalComponent,
-        ModalTriggerDirective,        
+        ModalTriggerDirective,
+        UpvoteComponent,
+        LocationValidatorDirective
+        
   ],
     bootstrap:[EventsAppComponent],
     providers:[                    // there are two more ways to DI is useExisting,useFactory
@@ -78,7 +84,8 @@ declare let jQuery: Object;
         {
             provide:'canDeactivateCreateEvent',
             useValue:checkDirtyState
-        }
+        },
+        VoterService
         ]
 })
 
