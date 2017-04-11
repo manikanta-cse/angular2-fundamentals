@@ -2,13 +2,14 @@ import {NgModule } from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
+import {HttpModule} from '@angular/http'
 
 import {
         EventsListComponent,
         EventDetailsComponent,
         EventListResolver,
         CreatEventComponent,
-        EventRouteActivatorService,
+        //EventRouteActivatorService,
         EventService,
         EventThumbnailComponent,
         CreateSessionComponent,
@@ -16,7 +17,8 @@ import {
         DurationPipe,
         UpvoteComponent,
         VoterService,
-        LocationValidatorDirective
+        LocationValidatorDirective,
+        EventResolverService
 
 } from './events/index'
 
@@ -44,7 +46,8 @@ declare let jQuery: Object;
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
+        HttpModule
         ],
     declarations:[
         EventsAppComponent,
@@ -75,7 +78,7 @@ declare let jQuery: Object;
             provide:JQ_TOKEN,
             useValue:jQuery
         },
-        EventRouteActivatorService, //short hand way to declaree DI registry
+        //EventRouteActivatorService, //short hand way to declaree DI registry
         {                              //other way to declaree DI registry when type is class
             provide:EventListResolver,  
             useClass :EventListResolver
@@ -85,7 +88,8 @@ declare let jQuery: Object;
             provide:'canDeactivateCreateEvent',
             useValue:checkDirtyState
         },
-        VoterService
+        VoterService,
+        EventResolverService
         ]
 })
 
