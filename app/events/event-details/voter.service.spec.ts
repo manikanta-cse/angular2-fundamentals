@@ -16,8 +16,8 @@ mockHttp;
 
         it('should remove the voter from the list of voters',()=>{
             var session= {id:6,voters:["mani","teja"]}
-
-            mockHttp.delete.and.returnVlaue(Observable.of(false));
+            
+            mockHttp.delete.and.returnValue(Observable.of(false));
 
             voterSvc.deleteVoter(3,<ISession>session,"mani");
 
@@ -28,7 +28,7 @@ mockHttp;
         it('should call http.delete wit hthe right url',()=>{
              var session= {id:6,voters:["mani","teja"]};
 
-              mockHttp.delete.and.returnVlaue(Observable.of(false));
+              mockHttp.delete.and.returnValue(Observable.of(false));
 
                voterSvc.deleteVoter(3,<ISession>session,"mani");
 
@@ -41,7 +41,7 @@ mockHttp;
         it('should call http.post wit hthe right url',()=>{
              var session= {id:6,voters:["mani"]};
 
-              mockHttp.post.and.returnVlaue(Observable.of(false));
+              mockHttp.post.and.returnValue(Observable.of(false));
 
                voterSvc.addVoter(3,<ISession>session,"mani");
 
