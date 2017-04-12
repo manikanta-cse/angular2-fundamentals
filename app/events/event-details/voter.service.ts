@@ -13,7 +13,7 @@ export class VoterService{
     }
 
     deleteVoter(eventId:number,session:ISession,voterName:string){
-        session.voters= session.voters.filter(voter=>{voter!==voterName});
+        session.voters= session.voters.filter(voter=>voter!==voterName);
 
         let url=`/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`
         this.http.delete(url).catch(this.handleError).subscribe();
