@@ -1,25 +1,26 @@
-import {Routes} from '@angular/router'
+import {Routes} from '@angular/router';
 
 import {
-      EventsListComponent,
-      EventDetailsComponent,
-      CreatEventComponent,
-      //EventRouteActivatorService,
-      EventListResolver,
       CreateSessionComponent,
-      EventResolverService
-    
-} from './events/index'
+      CreatEventComponent,
+      EventDetailsComponent,
+      // EventRouteActivatorService,
+      EventListResolver,
+      EventResolverService,
+      EventsListComponent,
 
-import {Error404Component} from './errors/404.component'
+} from './events/index';
 
- 
-export const appRoutes:Routes=[
-    {path:'events/new',component:CreatEventComponent,canDeactivate:['canDeactivateCreateEvent']},
-    {path:'events',component:EventsListComponent,resolve:{events:EventListResolver}},
-     {path:'events/:id',component:EventDetailsComponent,resolve:{event:EventResolverService}},//canActivate:[EventRouteActivatorService]},      
-     {path:'events/session/new',component:CreateSessionComponent},      
-     {path:'404',component:Error404Component},      
-      {path:'',redirectTo:'/events',pathMatch:'full'},
-      {path:'user',loadChildren:'app/user/user.module#UserModule'},      
-]
+import {Error404Component} from './errors/404.component';
+
+export const appRoutes: Routes = [
+    {path: 'events/new', component: CreatEventComponent, canDeactivate: ['canDeactivateCreateEvent']},
+    {path: 'events', component: EventsListComponent, resolve: {events: EventListResolver}},
+     {path: 'events/:id', component: EventDetailsComponent, resolve:
+      {event: EventResolverService}
+      }, // canActivate:[EventRouteActivatorService]},
+     {path: 'events/session/new', component: CreateSessionComponent},
+     {path: '404', component: Error404Component},
+      {path: '', redirectTo: '/events', pathMatch: 'full'},
+      {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
+];

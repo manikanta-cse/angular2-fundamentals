@@ -1,20 +1,20 @@
-import {Component,Input,Output,EventEmitter} from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
-import {IEvent} from './shared/index'
+import {IEvent} from './shared/index';
 
 @Component({
-    selector:'event-thumbnail',
-    template:`
+    selector: 'event-thumbnail',
+    template: `
      <div [routerLink]="['/events',event.id]" class="well hoverwell thumbnail">
                  <h2>{{event?.name | uppercase}}</h2>
                  <div>Date: {{event?.date | date:'shortDate'}} </div>
                  <div [ngClass]="getStartTimeClass()" [ngStyle]="getStartTimeStyle()" [ngSwitch]="event?.time">
-                 Time: {{event?.time}} 
+                 Time: {{event?.time}}
                  <span *ngSwitchCase="'8:00 am'">(Early Start) </span>
                   <span *ngSwitchCase="'10:00 am'">(Late Start) </span>
                  <span *ngSwitchDefault>(Normal Start) </span>
                  </div>
-                 <div>Price: {{event?.price | currency:'EUR':true}} </div>     
+                 <div>Price: {{event?.price | currency:'EUR':true}} </div>
                  <div *ngIf="event?.location">
                   <span>Location: {{event?.location?.address}}</span>
                   </div>
@@ -23,18 +23,18 @@ import {IEvent} from './shared/index'
                   </div>
             </div>
     `,
-    styles:[`.well div{ color:#bbb; } 
-            .thumbnail{ min-height:210px; } 
+    styles: [`.well div{ color:#bbb; }
+            .thumbnail{ min-height:210px; }
             .pad-left{ margin-left:10px;}
             .green { color:#003300 !important; }
-            .bold { font-weight:bold;}`
-            ]
-    //<button class="btn btn-primary" (click)="handleClickMe()"> Click Me! </button>
+            .bold { font-weight:bold;}`,
+            ],
+    // <button class="btn btn-primary" (click)="handleClickMe()"> Click Me! </button>
 })
 
-export class EventThumbnailComponent{
+export class EventThumbnailComponent {
    // someProp:any='temp';
-   @Input() event:IEvent
+   @Input() event: IEvent;
   // @Output() eventClick= new EventEmitter();
 
 //    handleClickMe(){
@@ -46,32 +46,33 @@ export class EventThumbnailComponent{
 //     console.log('foo')
 // }
 
-getStartTimeClass(){
+getStartTimeClass() {
 
     // you can return arrays, objects ,string of class to ngClass
-    //object
+    // object
     // const isEarlyStart = this.event && this.event.time === '8:00 am'
     // return { green : isEarlyStart,bold: isEarlyStart}
-    //string
+    // string
     // if(this.event && this.event.time === '8:00 am')
     // return 'green bold'
-    //array
-    if(this.event && this.event.time === '8:00 am')
-    return ['green', 'bold']
-    return []
+    // array
+    if (this.event && this.event.time === '8:00 am') {
+    return ['green', 'bold'];
+        }
+        return [];
 }
 
-getStartTimeStyle():any{
+getStartTimeStyle(): any {
 
-    if(this.event && this.event.time === '8:00 am')
-    return { color : '#003300','font-weight':'bold'}
-    
-   return {};
+    if (this.event && this.event.time === '8:00 am') {
+        return { 'color' : '#003300', 'font-weight': 'bold'};
+    }
+
+    return {};
 }
 
 }
 
-
-//? in event binding handles null or undefined values also called safe nnavigation operator
+// ? in event binding handles null or undefined values also called safe nnavigation operator
 ////   <div [hidden]="!event?.location"> used to hide elements in dom
 // *ngIf to render only when criteria satisfy
