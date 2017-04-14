@@ -5,8 +5,9 @@ import {ISession} from '../shared/index';
 import {VoterService} from './voter.service';
 
 @Component({
+    moduleId: module.id,
     selector: 'session-list',
-    templateUrl: 'app/events/event-details/session-list.component.html',
+    templateUrl: 'session-list.component.html',
 
 })
 

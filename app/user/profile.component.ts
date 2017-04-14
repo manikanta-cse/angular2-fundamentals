@@ -5,7 +5,8 @@ import {Toastr, TOASTR_TOKEN} from '../common/toastr.service';
 import {AuthService} from './auth.service';
 
 @Component({
-  templateUrl: 'app/user/profile.component.html',
+  moduleId: module.id,
+  templateUrl: 'profile.component.html',
   styles: [`em {float:right; color:#E05C65; padding-left:10px; }
    .error input { background-color:#E3C3C5}`],
 })

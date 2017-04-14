@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
+    moduleId: module.id,
     selector: 'upvote',
     template: `
     <div class="votingWidgetContainer pointable" (click)="onClick()">
@@ -14,7 +15,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 </div>
 </div>
     `,
-    styleUrls: ['/app/events/event-details/upvote.component  '],
+    styleUrls: ['upvote.component.css'],
 
 })
 
